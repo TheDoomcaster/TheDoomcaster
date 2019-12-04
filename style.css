@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Nunito|Permanent+Marker&display=swap');
+
+body {
+  background-color: #000000;
+  font-family: 'Nunito', sans-serif;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+#background {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/background.png");
+  background-size: 100%;
+  filter: blur(0px);
+  z-index: -1;
+  box-shadow: 0px 0px 500px -100px rgba(0,0,0,0) inset;
+
+  transition: filter 0.5s linear, opacity 0.5s linear, box-shadow 0.5s linear;
+}
+
+#card:hover ~ #background{
+  filter: blur(1px);
+  opacity: 0.95;
+  box-shadow: 0px -500px 500px -100px rgba(0,0,0,0.125) inset;
+}
+
+#card {
+  margin: 0 auto;
+  margin-top: 64px;
+
+  background-color: #ffffff;
+  width: 480px;
+  min-height: 576px;
+  border-radius: 6px;
+  padding: 12px;
+  padding-bottom: 32px;
+  text-align: center;
+  z-index: 1;
+
+  box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
+  transition: box-shadow 0.5s linear
+}
+
+#card:hover {
+  box-shadow: 0px 0px 20px 20px rgba(255,255,255,0.1);
+}
+
+#avatar {
+  width: 220px;
+  border-radius: 100%;
+  padding: 12px;
+  margin: 24px;
+  background-color: #ffffff;
+  box-shadow: 0px 16px 64px -48px #555555;
+  z-index: -5;
+  opacity: 0.9;
+}
+
+#avatar:hover {
+  transition: transform 0.125s linear;
+}
+
+#username {
+  font-size: 50px;
+  padding-bottom: 2px;
+  font-family: 'Permanent Marker', cursive;
+  line-height: 12px;
+  position: relative;
+  top: -16px;
+  opacity: 0.8;
+}
+
+#username:first-letter, #username span {
+  font-size: 80px;
+}
+
+#flavortext {
+  font-size: 25px;
+  font-weight: bold;
+  opacity: 0.35;
+  letter-spacing: 0.2px;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.contactHeader {
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0.5;
+  letter-spacing: 0.2px;
+  width: 150px;
+}
+
+.contactInfo {
+  margin: 0 auto;
+  font-size: 14px;
+  opacity: 0.75;
+  letter-spacing: 0.1px;
+  margin-bottom: 8px;
+}
+
+#kofi {
+  position: absolute;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  top: 0px;
+  left: 16px;
+}
+
+#copyright {
+  display: block;
+  margin: 0 auto;
+  margin-top: 8px;
+  width: 300px;
+  padding: 8px;
+  text-align: center;
+  color: #ffffff;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 6px;
+}
+
+#buttons {
+  margin-top: 32px;
+  position: relative;
+  height: 150px;
+  font-size: 20px;
+}
+
+.button {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  background-color: #44aaff;
+  color: #ffffff;
+  text-align: center;
+  line-height: 48px;
+  letter-spacing: 1px;
+  width: 75%;
+  height: 48px;
+  border: solid 0px rgba(0,0,0,0.25);
+  border-radius: 3px;
+  border-bottom-width: 4px;
+  vertical-align: middle;
+}
+
+.button:hover {
+  top: -2px;
+  background-color: #4fafff;
+  border-bottom-width: 6px;
+  margin-bottom: -2px;
+}
+
+.button:active {
+  top: 2px;
+  background-color: #2288cc;
+  color: rgba(255,255,255,0.77);
+  border-top-width: 3px;
+  border-bottom-width: 1px;
+  height: 46px;
+  margin-bottom: 14px;
+}

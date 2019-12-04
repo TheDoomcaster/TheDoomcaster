@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Doomcaster</title>
+  <meta name="description" content="A character and illustration artist.">
+  <meta name="author" content="Luke (Doomcaster)">
+
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./images/logo.png">
+
+</head>
+
+<body>
+  <div id="card">
+    <img id="avatar" src="./images/Logo.png"></img>
+    <div id="username"><b>DOOMCASTE<span>R</span></b></div>
+    <div id="flavortext">::: Character Illustration Artist :::</div>
+    <div id="buttons">
+      <a class="button" href="https://ko-fi.com/doomcaster" target="_blank"><img id="kofi" src="./images/kofi.png"></img>Support Me</a>
+      <a class="button" id="commissions" href="#" title="Coming soon!">Commission Info</a>
+    </div>
+    <div class="contactHeader">BUSINESS EMAIL</div>
+    <div class="contactInfo">Note: Add email</div>
+    <div class="contactHeader">DISCORD</div>
+    <div class="contactInfo">Doomcaster # 3864</div>
+  </div>
+  <div id="copyright">Copyright © 2019 Doomcaster</div>
+  <div id="background"></div>
+
+  </script src="./scripts/message.js">
+  <script>
+    var commissions = 0;
+
+    window.onload = (function(e){ document.body.style.opacity = 1; });
+
+    if (commissions>0) {
+      var c = document.getElementById("commissions");
+      c.innerHTML = c.innerHTML + ' (open!)';
+      c.style.backgroundColor = "#44cc88";
+    } else {
+      var c = document.getElementById("commissions");
+      c.innerHTML = c.innerHTML + ' (closed)';
+      c.style.backgroundColor = "#bbbbbb";
+      c.style.color = "#eeeeee";
+    }
+  </script>
+</body>
+</html>
