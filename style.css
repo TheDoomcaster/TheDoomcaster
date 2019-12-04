@@ -135,11 +135,14 @@ img {
   font-size: 20px;
 }
 
+#buttons * {
+  user-select: none !important;
+  text-decoration: none;
+}
+
 .button {
   display: block;
   cursor: pointer;
-  text-decoration: none;
-  user-select: none;
   position: relative;
   margin: 0 auto;
   margin-top: 12px;
