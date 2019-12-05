@@ -16,36 +16,23 @@
 <body>
   <div id="card">
     <img id="avatar" src="./images/logo.png"></img>
-    <div id="username"><b>DOOMCASTE<span>R</span></b></div>
-    <div id="flavortext">::: Character Illustration Artist :::</div>
+    <div id="title"><b>DOOMCASTE<span>R</span></b></div>
+    <div id="subtext">::: Character Illustration Artist :::</div>
+    <a href="https://twitter.com/Doomcaster" class="badge" title="Twitter"><img src="./images/twitter.png"></img></a>
+    <a href="https://instagram.com/TheDoomcaster" class="badge" title="Instagram"><img src="./images/instagram.png"></img></a>
     <div id="buttons">
-      <a class="button" href="https://ko-fi.com/doomcaster" target="_blank"><img id="kofi" src="./images/kofi.png"></img>Support Me</a>
-      <a class="button" id="commissions" href="#" title="Coming soon!">Commission Info</a>
+      <a class="button" href="https://ko-fi.com/doomcaster" target="_blank" title="Consider supporting me on Ko-fi!"><img class="button-icon" src="./images/kofi.png"></img>Support Me</a>
+      <a class="button" id="commissions" href="./commissions" title="Commission information can be found here!"><span class="button-icon">🖊</span>Commission Me</a>
     </div>
-    <div class="contactHeader">BUSINESS EMAIL</div>
-    <div class="contactInfo">Note: Add email</div>
-    <div class="contactHeader">DISCORD</div>
-    <div class="contactInfo">Doomcaster # 3864</div>
+    <div id="contact">
+      CONTACT INFORMATION<br>
+      <div>PERSONAL EMAIL<BR>DISCORD</div>
+      <div>lanarkyfaust (at) gmail.com<br> Doomcaster # 3864</div>
+    </div>
   </div>
   <div id="copyright">Copyright © 2019 Doomcaster</div>
   <div id="background"></div>
 
-  </script src="./scripts/message.js">
-  <script>
-    var commissions = 0;
-
-    window.onload = (function(e){ document.body.style.opacity = 1; });
-
-    if (commissions>0) {
-      var c = document.getElementById("commissions");
-      c.innerHTML = c.innerHTML + ' (open!)';
-      c.style.backgroundColor = "#44cc88";
-    } else {
-      var c = document.getElementById("commissions");
-      c.innerHTML = c.innerHTML + ' (closed)';
-      c.style.backgroundColor = "#bbbbbb";
-      c.style.color = "#eeeeee";
-    }
-  </script>
+  <script>window.onload = (function(e){ document.body.style.opacity = 1; });</script>
 </body>
 </html>
