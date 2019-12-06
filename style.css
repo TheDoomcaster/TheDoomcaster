@@ -195,6 +195,13 @@ img {
   background-color: #dd873d;
 }
 
+#newgrounds .button-icon {
+  width: 32px;
+  height: 32px;
+  top: 0px;
+  left: 24px;
+}
+
 .button {
   position: relative;
   text-decoration: none;
