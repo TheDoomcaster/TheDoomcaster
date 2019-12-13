@@ -190,6 +190,15 @@ img {
   background-color: #44cc88;
 }
 
+#newgrounds {
+  background-color: #dd873d;
+}
+
+#newgrounds .button-icon {
+  transform: scale(0.65);
+  opacity: 0.8;
+}
+
 .button {
   position: relative;
   text-decoration: none;
