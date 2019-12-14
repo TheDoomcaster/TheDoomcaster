@@ -1,7 +1,23 @@
+/* Import fonts to use. */
 @import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Nunito|Permanent+Marker&display=swap');
 
+/* Predefined colors, to keep things tidy. */
+/* Color Source: https://lospec.com/palette-list/slso8 */
+/* Note: The brightest color (hotter) was modified for better text readability. */
+:root {
+ --colder: #0d2b45;
+ --cold: #203c56;
+ --cooler: #544e68;
+ --cool: #8d697a;
+ --warm: #d08159;
+ --warmer: #ffaa5e;
+ --hot: #ffd4a3;
+ --hotter: #fffef8;
+}
+
 body {
-  background-color: #000000;
+  background-color: var(--colder);
+  color: var(--colder);
   font-family: 'Nunito', sans-serif;
   opacity: 0;
   transition: opacity 0.5s linear;
@@ -23,22 +39,19 @@ img {
   background-position: 50% 50%;
   filter: blur(0px);
   z-index: -1;
-  box-shadow: 0px 0px 500px -100px rgba(0,0,0,0) inset;
-
-  transition: filter 0.5s linear, opacity 0.5s linear, box-shadow 0.5s linear;
+  transition: filter 0.5s linear, opacity 0.5s linear;
 }
 
 #card:hover ~ #background{
   filter: blur(1px);
-  opacity: 0.95;
-  box-shadow: 0px -500px 500px -100px rgba(0,0,0,0.125) inset;
+  opacity: 0.9;
 }
 
 #card {
   position: relative;
   margin: 5px auto;
   margin-top: 64px;
-  background-color: #ffffff;
+  background-color: var(--hotter);
   max-width: 480px;
   min-height: 576px;
   border-radius: 6px;
@@ -46,13 +59,12 @@ img {
   padding-bottom: 32px;
   text-align: center;
   z-index: 1;
-
-  box-shadow: 0px 0px 0px 0px rgba(255,255,255,0);
+  box-shadow: 0px 0px 4px 1px var(--warm);
   transition: box-shadow 0.5s linear
 }
 
 #card:hover {
-  box-shadow: 0px 0px 20px 20px rgba(255,255,255,0.1);
+  box-shadow: 0px 0px 4px 1px var(--cold);
 }
 
 #avatar {
@@ -60,14 +72,10 @@ img {
   border-radius: 100%;
   padding: 12px;
   margin: 24px;
-  background-color: #ffffff;
-  box-shadow: 0px 16px 64px -48px #555555;
+  background-color: var(--hotter);
+  box-shadow: 0px 16px 92px -48px var(--cooler);
   z-index: -5;
-  opacity: 0.9;
-}
-
-#avatar:hover {
-  transition: transform 0.125s linear;
+  opacity: 0.8;
 }
 
 #title {
@@ -82,8 +90,7 @@ img {
   line-height: 12px;
   position: relative;
   top: -16px;
-  color: #000000;
-  opacity: 0.8;
+  color: var(--colder);
   text-decoration: none;
 }
 
@@ -92,9 +99,9 @@ img {
 }
 
 #subtext {
+  color: var(--cool);
   font-size: 25px;
   font-weight: bold;
-  opacity: 0.35;
   letter-spacing: 0.2px;
   font-family: 'Nanum Pen Script', cursive;
   margin-bottom: 32px;
@@ -108,7 +115,7 @@ img {
   margin: 0 auto;
   font-size: 14px;
   font-weight: bold;
-  opacity: 0.5;
+  color: var(--cool);
   letter-spacing: 0.2px;
   font-weight: bold;
   width: 100%;
@@ -117,7 +124,7 @@ img {
 #contact div {
   display: inline-block;
   font-weight: normal;
-  opacity: 1;
+  color: var(--cool);
   line-height: 24px;
   padding: 2px;
   width: 45%;
@@ -125,7 +132,7 @@ img {
 
 #contact div:nth-child(2) {
   text-align: right;
-  border-right: solid 1px rgba(0,0,0,0.25);
+  border-right: solid 1px var(--hot);
   padding-right: 3px;
 }
 
@@ -140,8 +147,9 @@ img {
   width: 300px;
   padding: 8px;
   text-align: center;
-  color: #ffffff;
-  background-color: rgba(0,0,0,0.5);
+  color: var(--hotter);
+  background-color: var(--colder);
+  opacity: 0.9;
   border-radius: 6px;
 }
 
@@ -150,18 +158,19 @@ img {
 .badge {
   display: inline-block;
   position: relative;
-  background-color: #000000;
+  background-color: var(--warmer);
   border-radius: 100%;
   width: 48px;
   height: 48px;
-  opacity: 0.35;
+  opacity: 1;
   margin: 0px 12px;
   margin-top: -20px;
 }
 
 .badge:hover {
-  opacity: 0.25;
-  box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.125);
+  opacity: 1;
+  background-color: var(--warm);
+  box-shadow: 0px 0px 4px 4px var(--hot);
 }
 
 .badge img {
@@ -192,11 +201,13 @@ img {
 }
 
 #commissions {
-  background-color: #44cc88;
+  background-color: var(--warm);
+  border-color: var(--cool);
 }
 
 #newgrounds {
-  background-color: #dd873d;
+  background-color: var(--cool);
+  border-color: var(--cooler);
 }
 
 #newgrounds .button-icon {
@@ -211,26 +222,25 @@ img {
   cursor: pointer;
   margin: 0 auto;
   margin-top: 12px;
-  background-color: #44aaff;
-  color: #ffffff;
   text-align: center;
   line-height: 48px;
   letter-spacing: 1px;
   width: 75%;
   height: 48px;
-  border: solid 0px rgba(0,0,0,0.25);
+  background-color: var(--warmer);
+  color: var(--hotter);
+  border: solid 0px var(--warm);
   border-radius: 3px;
   border-bottom-width: 4px;
 }
 
 .button:hover {
-  background-color: #4fafff;
   border-bottom-width: 6px;
   margin-top: 10px;
 }
 
 .button:active {
-  box-shadow: 0px 0px 0px 200px rgba(0,0,0,0.25) inset;
+  box-shadow: 0px 0px 0px 200px rgba(var(--colder),0.25) inset;
   color: rgba(255,255,255,0.77);
   border-bottom-width: 0px;
   margin-top: 16px;
