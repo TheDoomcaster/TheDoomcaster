@@ -16,7 +16,8 @@
 }
 
 body {
-  background-color: var(--colder);
+  /* background-color is hand-picked, for better fade blending. */
+  background-color: #222222;
   color: var(--colder);
   font-family: 'Nunito', sans-serif;
   opacity: 0;
