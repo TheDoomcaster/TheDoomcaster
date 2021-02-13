@@ -1,5 +1,5 @@
 /* Import fonts to use. */
-@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Nunito|Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Nunito&display=swap');
 
 /* Predefined colors, to keep things tidy. */
 /* Color Source: https://lospec.com/palette-list/slso8 */
@@ -16,100 +16,106 @@
 }
 
 body {
-  /* background-color is hand-picked, for better fade blending. */
-  background-color: #222222;
+  background-color: #eeeeee;
   color: var(--colder);
   font-family: 'Nunito', sans-serif;
   opacity: 0;
-  transition: opacity 0.5s linear;
 }
 
 img {
   -webkit-user-drag: none !important;
 }
 
-#background {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0px;
-  width: 110%;
-  height: 110%;
-  background-image: url("./images/background.png");
-  background-size: cover;
-  background-position: 50% 50%;
-  filter: blur(0px);
-  z-index: -1;
-  transition: filter 0.5s linear, opacity 0.5s linear;
-}
-
-#card:hover ~ #background{
-  filter: blur(1px);
-  opacity: 0.9;
+a {
+  text-decoration: none;
 }
 
 #card {
   position: relative;
-  margin: 5px auto;
+  margin: 0px auto;
   margin-top: 64px;
   background-color: var(--hotter);
   max-width: 480px;
   min-height: 576px;
-  border-radius: 6px;
-  padding: 12px;
+  border-radius: 2px;
   padding-bottom: 32px;
   text-align: center;
   z-index: 1;
-  box-shadow: 0px 0px 4px 1px var(--warm);
-  transition: box-shadow 0.5s linear
-}
-
-#card:hover {
-  box-shadow: 0px 0px 4px 1px var(--cold);
+  box-shadow: 0px 0px 1px 1px var(--hot);
 }
 
 #avatar {
-  max-width: 220px;
+  display: block;
+  position: relative;
+  width: 256px;
+  height: 256px;
   border-radius: 100%;
-  padding: 12px;
-  margin: 24px;
-  background-color: var(--hotter);
-  box-shadow: 0px 16px 92px -48px var(--cooler);
+  margin: 64px auto;
+  top: 32px;
+  background-color: var(--warmer);
   z-index: -5;
   opacity: 0.8;
+  overflow: hidden;
+}
+
+@keyframes slideMe {
+  0% {
+    transform: translateY(200%);
+    width: 120%;
+    height: 50%;
+    left: -10%;
+  }
+  50% {
+    transform: translateY(-10%);
+    width: 80%;
+    height: 120%;
+    left: 9.5%;
+  }
+  75% {
+    transform: translateY(50%);
+    width: 125%;
+    height: 75%;
+    left: -12.5%;
+  }
+  92.5% {
+    transform: translateY(-5%);
+    width: 95%;
+    height: 110%;
+    left: 2.2%;
+  }
+  100% {
+    transform: translateY(0%);
+    width: 100%;
+    height: 100%;
+    left: 0%;
+  }
+}
+
+#avatar img {
+  display: block;
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  top: 5%;
+  animation: 1s ease-in-out 0s 1 slideMe;
 }
 
 #title {
   display: block;
-  margin: 0px auto;
-}
-
-#title a {
   font-size: 50px;
-  padding-bottom: 2px;
-  font-family: 'Permanent Marker', cursive;
-  line-height: 12px;
+  line-height: 25px;
   position: relative;
-  top: -16px;
+  margin-bottom: 8px;
   color: var(--colder);
-  text-decoration: none;
 }
 
-#title:first-letter, #title a span {
-  font-size: 80px;
-}
-
-#subtext {
+#description {
+  position: relative;
   color: var(--cool);
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
   letter-spacing: 0.2px;
-  font-family: 'Nanum Pen Script', cursive;
   margin-bottom: 32px;
-}
-
-.trello-card-compact {
-  margin-bottom: 12px;
 }
 
 #contact {
@@ -124,6 +130,7 @@ img {
 
 #contact div {
   display: inline-block;
+  position: relative;
   font-weight: normal;
   color: var(--cool);
   line-height: 24px;
@@ -132,6 +139,7 @@ img {
 }
 
 #contact div:nth-child(2) {
+  position: relative;
   text-align: right;
   border-right: solid 1px var(--hot);
   padding-right: 3px;
@@ -143,43 +151,11 @@ img {
 
 #copyright {
   display: block;
-  margin: 0 auto;
-  margin-top: 8px;
+  margin: 16px auto;
   width: 300px;
-  padding: 8px;
   text-align: center;
-  color: var(--hotter);
-  background-color: var(--colder);
+  color: var(--cold);
   opacity: 0.9;
-  border-radius: 6px;
-}
-
-/* ==== Badges ==== */
-
-.badge {
-  display: inline-block;
-  position: relative;
-  background-color: var(--warmer);
-  border-radius: 100%;
-  width: 48px;
-  height: 48px;
-  opacity: 1;
-  margin: 0px 12px;
-  margin-top: -20px;
-}
-
-.badge:hover {
-  opacity: 1;
-  background-color: var(--warm);
-  box-shadow: 0px 0px 4px 4px var(--hot);
-}
-
-.badge img {
-  position: absolute;
-  width: 32px;
-  left: 8px;
-  top: 8px;
-  opacity: 100%;
 }
 
 /* ==== Buttons ==== */
@@ -190,39 +166,11 @@ img {
   padding-bottom: 48px;
 }
 
-.button-icon {
-  position: absolute !important;
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-  top: 0px;
-  left: 16px;
-  font-weight: bold;
-  font-size: 32px;
-}
-
-#commissions {
-  background-color: var(--warm);
-  border-color: var(--cool);
-}
-
-#newgrounds {
-  background-color: var(--cool);
-  border-color: var(--cooler);
-}
-
-#newgrounds .button-icon {
-  transform: scale(0.65);
-  opacity: 0.8;
-}
-
 .button {
   position: relative;
-  text-decoration: none;
   display: block;
   cursor: pointer;
-  margin: 0 auto;
-  margin-top: 12px;
+  margin: 12px auto;
   text-align: center;
   line-height: 48px;
   letter-spacing: 1px;
@@ -230,21 +178,25 @@ img {
   height: 48px;
   background-color: var(--warmer);
   color: var(--hotter);
-  border: solid 0px var(--warm);
-  border-radius: 3px;
-  border-bottom-width: 4px;
+  /* Center the button press. */
+  border-top: 4px solid var(--hotter);
+  border-bottom: 4px solid var(--warm);
 }
 
 .button:hover {
-  border-bottom-width: 6px;
-  margin-top: 10px;
+  /* Raise the button press. */
+  border-top: 2px solid var(--hotter);
+  border-bottom-width: 8px;
+  height: 46px;
+  width: 73%;
 }
 
 .button:active {
-  box-shadow: 0px 0px 0px 200px rgba(var(--colder),0.25) inset;
-  color: rgba(255,255,255,0.77);
-  border-bottom-width: 0px;
-  margin-top: 16px;
+  opacity: 0.5;
+  width: 77%;
+  /* Lower the button press. */
+  border-top: 10px solid var(--hotter);
+  border-bottom: 0px solid var(--warm);
 }
 
 /* ==== Mobile Stuff ==== */
