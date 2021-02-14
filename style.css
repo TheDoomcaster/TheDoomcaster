@@ -15,49 +15,6 @@
  --hotter: #fffef8;
 }
 
-body {
-  background-color: #eeeeee;
-  color: var(--colder);
-  font-family: 'Nunito', sans-serif;
-  opacity: 0;
-}
-
-img {
-  -webkit-user-drag: none !important;
-}
-
-a {
-  text-decoration: none;
-}
-
-#card {
-  position: relative;
-  margin: 0px auto;
-  margin-top: 64px;
-  background-color: var(--hotter);
-  max-width: 480px;
-  min-height: 576px;
-  border-radius: 2px;
-  padding-bottom: 32px;
-  text-align: center;
-  z-index: 1;
-  box-shadow: 0px 0px 1px 1px var(--hot);
-}
-
-#avatar {
-  display: block;
-  position: relative;
-  width: 256px;
-  height: 256px;
-  border-radius: 100%;
-  margin: 64px auto;
-  top: 32px;
-  background-color: var(--warmer);
-  z-index: -5;
-  opacity: 0.8;
-  overflow: hidden;
-}
-
 @keyframes slideMe {
   0% {
     transform: translateY(200%);
@@ -91,6 +48,53 @@ a {
   }
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eeeeee;
+  color: var(--colder);
+  font-family: 'Nunito', sans-serif;
+}
+
+img {
+  -webkit-user-drag: none !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+#card {
+  position: relative;
+  margin: 0px auto;
+  margin-top: 64px;
+  background-color: var(--hotter);
+  width: calc(100% - 32px);
+  max-width: 480px;
+  min-height: 576px;
+  border-radius: 2px;
+  padding-bottom: 32px;
+  text-align: center;
+  z-index: 1;
+  box-shadow: 0px 0px 1px 1px var(--hot);
+}
+
+#avatar {
+  display: block;
+  position: relative;
+  width: min(50vw, 256px);
+  height: min(50vw, 256px);
+  border-radius: 100%;
+  margin: 64px auto;
+  top: 32px;
+  background-color: var(--warmer);
+  z-index: -5;
+  overflow: hidden;
+}
+
 #avatar img {
   display: block;
   position: absolute;
@@ -100,9 +104,9 @@ a {
   animation: 1s ease-in-out 0s 1 slideMe;
 }
 
-#title {
+#title * {
   display: block;
-  font-size: 50px;
+  font-size: min(10vw, 50px);
   line-height: 25px;
   position: relative;
   margin-bottom: 8px;
@@ -112,7 +116,7 @@ a {
 #description {
   position: relative;
   color: var(--cool);
-  font-size: 18px;
+  font-size: min(3.6vw, 18px);
   font-weight: bold;
   letter-spacing: 0.2px;
   margin-bottom: 32px;
@@ -120,7 +124,7 @@ a {
 
 #contact {
   margin: 0 auto;
-  font-size: 14px;
+  font-size: min(2.5vw, 14px) !important;
   font-weight: bold;
   color: var(--cool);
   letter-spacing: 0.2px;
@@ -152,7 +156,8 @@ a {
 #copyright {
   display: block;
   margin: 16px auto;
-  width: 300px;
+  max-width: 60%;
+  font-size: min(4vw, 16px);
   text-align: center;
   color: var(--cold);
   opacity: 0.9;
@@ -162,7 +167,7 @@ a {
 #buttons {
   position: relative;
   max-width: 480px;
-  font-size: 20px;
+  font-size: min(6vw, 20px);
   padding-bottom: 48px;
 }
 
@@ -197,23 +202,4 @@ a {
   /* Lower the button press. */
   border-top: 10px solid var(--hotter);
   border-bottom: 0px solid var(--warm);
-}
-
-/* ==== Mobile Stuff ==== */
-@media only screen and (max-width: 450px) {
-  .button-icon {
-    display: none !important;
-  }
-  #title a {
-    font-size: 40px;
-    letter-spacing: -2px;
-  }
-  #title:first-letter, #title a span {
-    font-size: 60px;
-    letter-spacing: -2px;
-  }
-  #contact {
-    font-size: 13px;
-    letter-spacing: -0.5px;
-  }
 }
