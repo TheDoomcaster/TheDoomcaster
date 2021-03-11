@@ -63,11 +63,11 @@ img {
   -webkit-user-drag: none !important;
 }
 
-a {
+#card a, #title{
   text-decoration: none;
 }
 
-#card {
+#card, #page {
   position: relative;
   margin: 0px auto;
   margin-top: 64px;
@@ -80,6 +80,48 @@ a {
   text-align: center;
   z-index: 1;
   box-shadow: 0px 0px 1px 1px var(--hot);
+}
+
+#page {
+  max-width: 960px;
+}
+
+#page > #content {
+  text-align: left;
+  position: relative;
+  margin: auto 64px;
+}
+
+#commission_list, #commission_list select{
+  display: block;
+  margin: 0px auto;
+  width: 90% !important;
+  height: 64px;
+
+  border-color: var(--warmer);
+  text-align: center;
+  text-align-last: center;
+  font-size: min(6vw, 20px);
+}
+
+#commission_images {
+  display: block;
+  margin: 0px auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#commission_images > img {
+  display: inline-block;
+  margin: 8px 2px;
+  max-width: 50%;
+  border: 1px solid var(--warmer);
+  padding: 8px;
+}
+
+#commission_info {
+  display: none;
 }
 
 #avatar {

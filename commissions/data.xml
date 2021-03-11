@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commissions>
+  <example>
+    <title>(select commission to preview)</title>
+  </example>
+
+  <example>
+    <title>Simple Portrait (full-color)</title>
+    <price>$30</price>
+    <resolution>3000x3000px</resolution>
+    <description>A full-color simplified character portait. Perfect for avatars.</description>
+    <images>
+      <img>./images/simple_portrait1.jpg</img>
+      <img>./images/simple_portrait2.jpg</img>
+    </images>
+  </example>
+
+  <example>
+    <title>Portrait (full-color)</title>
+    <price>$60</price>
+    <resolution>3000x3000px</resolution>
+    <description>A full-color character portrait.</description>
+    <images>
+      <img>./images/portrait1.jpg</img>
+      <img>./images/portrait1.jpg</img>
+    </images>
+  </example>
+
+  <example>
+    <title>Thigh-up (full-color)</title>
+    <price>$100</price>
+    <resolution>2115x3000px</resolution>
+    <description>A full-color character from the thigh-up.</description>
+    <images>
+      <img>./images/thighup1.jpg</img>
+      <img>./images/thighup2.jpg</img>
+    </images>
+  </example>
+</commissions>

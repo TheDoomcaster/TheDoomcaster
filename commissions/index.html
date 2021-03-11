@@ -1,0 +1,122 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Doomcaster - Digital Artist</title>
+  <meta name="description" content="A digital artist focused on character and illustration artwork. Links to all social media, artwork, and commission information can be found here. "/>
+  <meta name="author" content="Luke (Doomcaster)"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="canonical" href="https://doomcaster.art/commissions">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/images/logo.png">
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:site" content="@doomcaster"/>
+  <meta name="twitter:title" content="Doomcaster"/>
+  <meta name="twitter:description" content="Character illustration artist."/>
+  <meta name="twitter:image" content="https://doomcaster.art/images/background.png"/>
+
+  <script type="text/javascript">
+    var xmlDoc;
+
+    // Called whenever something is selected from the menu, and updates the page.
+    var update_previews = function(obj) {
+      var data = xmlDoc.getElementsByTagName('example')[obj.value];
+      var info_container = document.getElementById("commission_info");
+      var info = info_container.children;
+
+      if (obj.value > 0) {
+        // Display the commission details.
+        info_container.style.display = 'block';
+
+        var imagebox = document.getElementById("commission_images");
+        var images = data.getElementsByTagName('images')[0].getElementsByTagName('img');
+
+        // Remove previously displayed images.
+        do {
+          imagebox.firstChild.remove();
+        } while (imagebox.children.length > 0);
+
+        // Dynamically add all example images from the XML for this commission.
+        for(var i=0; i<images.length; i++) {
+          var img = document.createElement("img");
+          img.src = images[i].firstChild.nodeValue;
+          imagebox.appendChild(img);
+        }
+
+        // Populate the information.
+        info[1].innerText = "Price: " + data.getElementsByTagName('price')[0].firstChild.nodeValue;
+        info[2].innerText = "Description: " + data.getElementsByTagName('description')[0].firstChild.nodeValue;
+      } else {
+        // Hide the commission information, as nothing is selected.
+        info_container.style.display = 'none';
+      }
+    }
+
+    // Retrieve the XML data required for displaying commission information.
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        // Now that we have the XML, let's store it...
+        var parser = new DOMParser();
+        xmlDoc = parser.parseFromString(xhttp.responseText,"text/xml");
+
+        // ...and get the list prepared for use.
+        populate_list();
+      }
+    };
+    xhttp.open("GET", "./data.xml", true);
+    xhttp.send();
+
+    // Populate the dropdown with the XML data.
+    var populate_list = function() {
+      var mylist = document.getElementById("mylist");
+      var items = xmlDoc.getElementsByTagName('title');
+
+      // For each title in the XML, add it to the list.
+      for(var i=0; i<items.length; i++) {
+        var option = document.createElement("option");
+        var title = items[i].firstChild.nodeValue;
+        option.text = title;
+        option.value = i;
+        mylist.add(option);
+      }
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <div id="page">
+    <div id="avatar"><img src="/images/avatar_512.png" alt="Doomcaster Avatar"></img></div>
+    <a href="/" id="title"><h1>DOOMCASTER</h1></a>
+    <div id="description">Character Illustration Artist</div>
+    <div id="description">SPELLCHECK THIS BEFORE YA' UPLOAD, YA' DINGUS</div>
+    <div id="content">
+      <form id="commission_list">
+         <select id="mylist" name="dropdown" onchange="update_previews(this)"></select>
+      </form>
+      <div id="commission_info">
+        <div id="commission_images">
+        </div>
+        <p>Price: ?</p>
+        <p>Description: ????????</p>
+      </div>
+      <br>
+      <!--p>If nothing here suits your fancy, you can always support my work by
+        leaving a small tip over on my <a href="https://ko-fi.com/doomcaster" target="_blank">Ko-fi page</a>.
+      Feel free to leave a suggestion for something you'd like to see me draw in the future while you're there.
+    While nothing is guaranteed, I may eventually get around to drawing something in my spare time if I like the idea!</p-->
+    </div>
+    <div id="contact">
+      CONTACT INFORMATION<br>
+      <div>DISCORD<br>EMAIL</div>
+      <div>Doomcaster # 3864<br>heydoomcaster @ gmail . com</div>
+    </div>
+  </div>
+  <div id="copyright">Copyright © 2021 Doomcaster</div>
+</body>
+</html>
